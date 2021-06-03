@@ -25,12 +25,18 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       
+      - name: Setup Java JDK
+        uses: actions/setup-java@v2.1.0
+        with:
+          java-version: '15'
+          distribution: 'adopt'
+          
       - name: version
         run: javac --version
 
       # Runs a single command using the runners shell
       - name: project
-        run: find src -name "*.java" | xargs javac --release 16 -d out/production --module-source-path src
+        run: find src -name "*.java" | xargs javac --release 15 -d out/production --module-source-path src
 
       # Runs a set of commands using the runners shell
       - name: build
