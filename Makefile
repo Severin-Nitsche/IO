@@ -1,5 +1,5 @@
 project:
-	find src -name "*.java" | xargs javac --release 16 -d out/production --module-source-path src
+	find src -name "*.java" | xargs javac --release 15 -d out/production --module-source-path src
 
 build:
 	mkdir -p out/artifacts
