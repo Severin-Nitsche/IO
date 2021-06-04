@@ -12,7 +12,7 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
-      
+
       - name: Setup Java JDK
         uses: actions/setup-java@v2.1.0
         with:
@@ -20,9 +20,4 @@ jobs:
           distribution: 'adopt'
 
       - name: Compile Source Files
-        run: find src -name "*.java" | xargs javac --release 15 -d out/production --module-source-path src
-
-      - name: Bundle Jar
-        run: |
-          mkdir -p out/artifacts
-          jar -cf out/artifacts/IO.jar -C out/production/com.github.severinnitsche.io .
+        uses: comchangs/action-maven@v0.4-beta
