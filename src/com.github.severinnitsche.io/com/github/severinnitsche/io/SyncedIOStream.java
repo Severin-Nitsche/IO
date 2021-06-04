@@ -66,7 +66,7 @@ public class SyncedIOStream {
 
   synchronized void release(IOStream stream, long position) {
     while(queue.peek() != stream); //Block
-    offset = buffer.size(); //Update bounds
+    offset = position; //Update bounds
     queue.poll(); //Remove stream
     //TODO: Add ghost Activation
     ghosts.stream().forEach(g -> {
