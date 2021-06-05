@@ -19,5 +19,16 @@ jobs:
           java-version: '15'
           distribution: 'adopt'
 
-      - name: Compile Source Files
-        uses: comchangs/action-maven@v0.4-beta
+      - name: Setup Maven
+        uses: stCarolas/setup-maven@v4.1
+        with:
+          maven-version: 3.8.1
+      
+      - name: Build
+        run: mvn compile
+  test:
+    runs-on: macos-latest
+    needs: build
+    steps:
+      - name: Test
+        run: mvn test
