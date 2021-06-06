@@ -1,0 +1,207 @@
+# The configurations that used for the recording, feel free to edit them
+config:
+
+  # Specify a command to be executed
+  # like `/bin/bash -l`, `ls`, or any other commands
+  # the default is bash for Linux
+  # or powershell.exe for Windows
+  command: bash -l
+
+  # Specify the current working directory path
+  # the default is the current working directory path
+  cwd: /Users/io/Documents/Workspaces
+
+  # Export additional ENV variables
+  env:
+    recording: true
+
+  # Explicitly set the number of columns
+  # or use `auto` to take the current
+  # number of columns of your shell
+  cols: 80
+
+  # Explicitly set the number of rows
+  # or use `auto` to take the current
+  # number of rows of your shell
+  rows: 18
+
+  # Amount of times to repeat GIF
+  # If value is -1, play once
+  # If value is 0, loop indefinitely
+  # If value is a positive number, loop n times
+  repeat: 0
+
+  # Quality
+  # 1 - 100
+  quality: 100
+
+  # Delay between frames in ms
+  # If the value is `auto` use the actual recording delays
+  frameDelay: auto
+
+  # Maximum delay between frames in ms
+  # Ignored if the `frameDelay` isn't set to `auto`
+  # Set to `auto` to prevent limiting the max idle time
+  maxIdleTime: 2000
+
+  # The surrounding frame box
+  # The `type` can be null, window, floating, or solid`
+  # To hide the title use the value null
+  # Don't forget to add a backgroundColor style with a null as type
+  frameBox:
+    type: solid
+    title: null
+    style:
+      border: 0px black solid
+      # boxShadow: none
+      # margin: 0px
+
+  # Add a watermark image to the rendered gif
+  # You need to specify an absolute path for
+  # the image on your machine or a URL, and you can also
+  # add your own CSS styles
+  watermark:
+    imagePath: null
+    style:
+      position: absolute
+      right: 15px
+      bottom: 15px
+      width: 100px
+      opacity: 0.9
+
+  # Cursor style can be one of
+  # `block`, `underline`, or `bar`
+  cursorStyle: block
+
+  # Font family
+  # You can use any font that is installed on your machine
+  # in CSS-like syntax
+  fontFamily: "Monaco, Lucida Console, Ubuntu Mono, Monospace"
+
+  # The size of the font
+  fontSize: 24
+
+  # The height of lines
+  lineHeight: 1
+
+  # The spacing between letters
+  letterSpacing: 0
+
+  # Theme
+  theme:
+    background: "transparent"
+    foreground: "#afafaf"
+    cursor: "#c7c7c7"
+    black: "#232628"
+    red: "#fc4384"
+    green: "#b3e33b"
+    yellow: "#ffa727"
+    blue: "#75dff2"
+    magenta: "#ae89fe"
+    cyan: "#708387"
+    white: "#d5d5d0"
+    brightBlack: "#626566"
+    brightRed: "#ff7fac"
+    brightGreen: "#c8ed71"
+    brightYellow: "#ebdf86"
+    brightBlue: "#75dff2"
+    brightMagenta: "#ae89fe"
+    brightCyan: "#b1c6ca"
+    brightWhite: "#f9f9f4"
+
+# Records, feel free to edit them
+records:
+  - delay: 0
+    content: '$ '
+  - delay: 1300
+    content: g
+  - delay: 50
+    content: i
+  - delay: 50
+    content: t
+  - delay: 50
+    content: ' '
+  - delay: 50
+    content: c
+  - delay: 50
+    content: l
+  - delay: 50
+    content: o
+  - delay: 50
+    content: 'n'
+  - delay: 50
+    content: e
+  - delay: 50
+    content: ' '
+  - delay: 50
+    content: "https://github.com/Severin-Nitsche/IO.git"
+  - delay: 50
+    content: "\r\n"
+  - delay: 18
+    content: "Cloning into 'IO'...\r\n"
+  - delay: 616
+    content: "remote: Enumerating objects: 100, done.\e[K\r\nremote: Counting objects:   1% (1/100)\e[K\rremote: Counting objects:   2% (2/100)\e[K\rremote: Counting objects:   3% (3/100)\e[K\rremote: Counting objects:   4% (4/100)\e[K\rremote: Counting objects:   5% (5/100)\e[K\rremote: Counting objects:   6% (6/100)\e[K\rremote: Counting objects:   7% (7/100)\e[K\rremote: Counting objects:   8% (8/100)\e[K\rremote: Counting objects:   9% (9/100)\e[K\rremote: Counting objects:  10% (10/100)\e[K\rremote: Counting objects:  11% (11/100)\e[K\rremote: Counting objects:  12% (12/100)\e[K\rremote: Counting objects:  13% (13/100)\e[K\rremote: Counting objects:  14% (14/100)\e[K\rremote: Counting objects:  15% (15/100)\e[K\rremote: Counting objects:  16% (16/100)\e[K\rremote: Counting objects:  17% (17/100)\e[K\rremote: Counting objects:  18% (18/100)\e[K\rremote: Counting objects:  19% (19/100)\e[K\rremote: Counting objects:  20% (20/100)\e[K\rremote: Counting objects:  21% (21/100)\e[K\rremote: Counting objects:  22% (22/100)\e[K\rremote: Counting objects:  23% (23/100)\e[K\rremote: Counting objects:  24% (24/100)\e[K\rremote: Counting objects:  25% (25/100)\e[K\rremote: Counting objects:  26% (26/100)\e[K\rremote: Counting objects:  27% (27/100)\e[K\rremote: Counting objects:  28% (28/100)\e[K\rremote: Counting objects:  29% (29/100)\e[K\rremote: Counting objects:  30% (30/100)\e[K\rremote: Counting objects:  31% (31/100)\e[K\rremote: Counting objects:  32% (32/100)\e[K\rremote: Counting objects:  33% (33/100)\e[K\rremote: Counting objects:  34% (34/100)\e[K\rremote: Counting objects:  35% (35/100)\e[K\rremote: Counting objects:  36% (36/100)\e[K\rremote: Counting objects:  37% (37/100)\e[K\rremote: Counting objects:  38% (38/100)\e[K\rremote: Counting objects:  39% (39/100)\e[K\rremote: Counting objects:  40% (40/100)\e[K\rremote: Counting objects:  41% (41/100)\e[K\rremote: Counting objects:  42% (42/100)\e[K\rremote: Counting objects:  43% (43/100)\e[K\rremote: Counting objects:  44% (44/100)\e[K\rremote: Counting objects:  45% (45/100)\e[K\rremote: Counting objects:  46% (46/100)\e[K\rremote: Counting objects:  47% (47/100)\e[K\rremote: Counting objects:  48% (48/100)\e[K\rremote: Counting objects:  49% (49/100)\e[K\rremote: Counting objects:  50% (50/100)\e[K\rremote: Counting objects:  51% (51/100)\e[K\rremote: Counting objects:  52% (52/100)\e[K\rremote: Counting objects:  53% (53/100)\e[K\rremote: Counting objects:  54% (54/100)\e[K\rremote: Counting objects:  55% (55/100)\e[K\rremote: Counting objects:  56% (56/100)\e[K\rremote: Counting objects:  57% (57/100)\e[K\rremote: Counting objects:  58% (58/100)\e[K\rremote: Counting objects:  59% (59/100)\e[K\rremote: Counting objects:  60% (60/100)\e[K\rremote: Counting objects:  61% (61/100)\e[K\rremote: Counting objects:  62% (62/100)\e[K\rremote: Counting objects:  63% (63/100)\e[K\rremote: Counting objects:  64% (64/100)\e[K\rremote: Counting objects:  65% (65/100)\e[K\rremote: Counting objects:  66% (66/100)\e[K\rremote: Counting objects:  67% (67/100)\e[K\rremote: Counting objects:  68% (68/100)\e[K\rremote: Counting objects:  69% (69/100)\e[K\rremote: Counting objects:  70% (70/100)\e[K\rremote: Counting objects:  71% (71/100)\e[K\rremote: Counting objects:  72% (72/100)\e[K\rremote: Counting objects:  73% (73/100)\e[K\rremote: Counting objects:  74% (74/100)\e[K\rremote: Counting objects:  75% (75/100)\e[K\rremote: Counting objects:  76% (76/100)\e[K\rremote: Counting objects:  77% (77/100)\e[K\rremote: Counting objects:  78% (78/100)\e[K\rremote: Counting objects:  79% (79/100)\e[K\rremote: Counting objects:  80% (80/100)\e[K\rremote: Counting objects:  81% (81/100)\e[K\rremote: Counting objects:  82% (82/100)\e[K\rremote: Counting objects:  83% (83/100)\e[K\rremote: Counting objects:  84% (84/100)\e[K\rremote: Counting objects:  85% (85/100)\e[K\rremote: Counting objects:  86% (86/100)\e[K\rremote: Counting objects:  87% (87/100)\e[K\rremote: Counting objects:  88% (88/100)\e[K\rremote: Counting objects:  89% (89/100)\e[K\rremote: Counting objects:  90% (90/100)\e[K\rremote: Counting objects:  91% (91/100)\e[K\rremote: Counting objects:  92% (92/100)\e[K\rremote: Counting objects:  93% (93/100)\e[K\rremote: Counting objects:  94% (94/100)\e[K\rremote: Counting objects:  95% (95/100)\e[K\rremote: Counting objects:  96% (96/100)\e[K\rremote: Counting objects:  97% (97/100)\e[K\rremote: Counting objects:  98% (98/100)\e[K\rremote: Counting objects:  99% (99/100)\e[K\rremote: Counting objects: 100% (100/100)\e[K\rremote: Counting objects: 100% (100/100), done.\e[K\r\nremote: Compressing objects:   1% (1/64)\e[K\rremote: Compressing objects:   3% (2/64)\e[K\rremote: Compressing objects:   4% (3/64)\e[K\rremote: Compressing objects:   6% (4/64)\e[K\rremote: Compressing objects:   7% (5/64)\e[K\rremote: Compressing objects:   9% (6/64)\e[K\rremote: Compressing objects:  10% (7/64)\e[K\rremote: Compressing objects:  12% (8/64)\e[K\r"
+  - delay: 15
+    content: "remote: Compressing objects:  14% (9/64)\e[K\rremote: Compressing objects:  15% (10/64)\e[K\rremote: Compressing objects:  17% (11/64)\e[K\rremote: Compressing objects:  18% (12/64)\e[K\rremote: Compressing objects:  20% (13/64)\e[K\rremote: Compressing objects:  21% (14/64)\e[K\rremote: Compressing objects:  23% (15/64)\e[K\rremote: Compressing objects:  25% (16/64)\e[K\rremote: Compressing objects:  26% (17/64)\e[K\rremote: Compressing objects:  28% (18/64)\e[K\rremote: Compressing objects:  29% (19/64)\e[K\rremote: Compressing objects:  31% (20/64)\e[K\rremote: Compressing objects:  32% (21/64)\e[K\rremote: Compressing objects:  34% (22/64)\e[K\rremote: Compressing objects:  35% (23/64)\e[K\rremote: Compressing objects:  37% (24/64)\e[K\rremote: Compressing objects:  39% (25/64)\e[K\rremote: Compressing objects:  40% (26/64)\e[K\rremote: Compressing objects:  42% (27/64)\e[K\rremote: Compressing objects:  43% (28/64)\e[K\rremote: Compressing objects:  45% (29/64)\e[K\rremote: Compressing objects:  46% (30/64)\e[K\rremote: Compressing objects:  48% (31/64)\e[K\rremote: Compressing objects:  50% (32/64)\e[K\rremote: Compressing objects:  51% (33/64)\e[K\rremote: Compressing objects:  53% (34/64)\e[K\rremote: Compressing objects:  54% (35/64)\e[K\rremote: Compressing objects:  56% (36/64)\e[K\rremote: Compressing objects:  57% (37/64)\e[K\rremote: Compressing objects:  59% (38/64)\e[K\rremote: Compressing objects:  60% (39/64)\e[K\rremote: Compressing objects:  62% (40/64)\e[K\rremote: Compressing objects:  64% (41/64)\e[K\rremote: Compressing objects:  65% (42/64)\e[K\rremote: Compressing objects:  67% (43/64)\e[K\rremote: Compressing objects:  68% (44/64)\e[K\rremote: Compressing objects:  70% (45/64)\e[K\rremote: Compressing objects:  71% (46/64)\e[K\rremote: Compressing objects:  73% (47/64)\e[K\rremote: Compressing objects:  75% (48/64)\e[K\rremote: Compressing objects:  76% (49/64)\e[K\rremote: Compressing objects:  78% (50/64)\e[K\rremote: Compressing objects:  79% (51/64)\e[K\rremote: Compressing objects:  81% (52/64)\e[K\rremote: Compressing objects:  82% (53/64)\e[K\rremote: Compressing objects:  84% (54/64)\e[K\rremote: Compressing objects:  85% (55/64)\e[K\rremote: Compressing objects:  87% (56/64)\e[K\rremote: Compressing objects:  89% (57/64)\e[K\rremote: Compressing objects:  90% (58/64)\e[K\rremote: Compressing objects:  92% (59/64)\e[K\rremote: Compressing objects:  93% (60/64)\e[K\rremote: Compressing objects:  95% (61/64)\e[K\rremote: Compressing objects:  96% (62/64)\e[K\rremote: Compressing objects:  98% (63/64)\e[K\rremote: Compressing objects: 100% (64/64)\e[K\rremote: Compressing objects: 100% (64/64), done.\e[K\r\n"
+  - delay: 5
+    content: "remote: Total 100 (delta 32), reused 43 (delta 12), pack-reused 0\e[K\r\nReceiving objects:   1% (1/100)\rReceiving objects:   2% (2/100)\rReceiving objects:   3% (3/100)\rReceiving objects:   4% (4/100)\rReceiving objects:   5% (5/100)\rReceiving objects:   6% (6/100)\rReceiving objects:   7% (7/100)\rReceiving objects:   8% (8/100)\rReceiving objects:   9% (9/100)\rReceiving objects:  10% (10/100)\rReceiving objects:  11% (11/100)\rReceiving objects:  12% (12/100)\rReceiving objects:  13% (13/100)\rReceiving objects:  14% (14/100)\rReceiving objects:  15% (15/100)\rReceiving objects:  16% (16/100)\rReceiving objects:  17% (17/100)\rReceiving objects:  18% (18/100)\rReceiving objects:  19% (19/100)\rReceiving objects:  20% (20/100)\rReceiving objects:  21% (21/100)\rReceiving objects:  22% (22/100)\rReceiving objects:  23% (23/100)\rReceiving objects:  24% (24/100)\rReceiving objects:  25% (25/100)\rReceiving objects:  26% (26/100)\rReceiving objects:  27% (27/100)\rReceiving objects:  28% (28/100)\rReceiving objects:  29% (29/100)\rReceiving objects:  30% (30/100)\rReceiving objects:  31% (31/100)\rReceiving objects:  32% (32/100)\rReceiving objects:  33% (33/100)\rReceiving objects:  34% (34/100)\rReceiving objects:  35% (35/100)\rReceiving objects:  36% (36/100)\rReceiving objects:  37% (37/100)\rReceiving objects:  38% (38/100)\rReceiving objects:  39% (39/100)\rReceiving objects:  40% (40/100)\rReceiving objects:  41% (41/100)\rReceiving objects:  42% (42/100)\rReceiving objects:  43% (43/100)\rReceiving objects:  44% (44/100)\rReceiving objects:  45% (45/100)\rReceiving objects:  46% (46/100)\rReceiving objects:  47% (47/100)\rReceiving objects:  48% (48/100)\rReceiving objects:  49% (49/100)\rReceiving objects:  50% (50/100)\rReceiving objects:  51% (51/100)\rReceiving objects:  52% (52/100)\rReceiving objects:  53% (53/100)\rReceiving objects:  54% (54/100)\rReceiving objects:  55% (55/100)\rReceiving objects:  56% (56/100)\rReceiving objects:  57% (57/100)\rReceiving objects:  58% (58/100)\rReceiving objects:  59% (59/100)\rReceiving objects:  60% (60/100)\rReceiving objects:  61% (61/100)\rReceiving objects:  62% (62/100)\rReceiving objects:  63% (63/100)\rReceiving objects:  64% (64/100)\rReceiving objects:  65% (65/100)\rReceiving objects:  66% (66/100)\rReceiving objects:  67% (67/100)\rReceiving objects:  68% (68/100)\rReceiving objects:  69% (69/100)\rReceiving objects:  70% (70/100)\rReceiving objects:  71% (71/100)\rReceiving objects:  72% (72/100)\rReceiving objects:  73% (73/100)\rReceiving objects:  74% (74/100)\rReceiving objects:  75% (75/100)\rReceiving objects:  76% (76/100)\rReceiving objects:  77% (77/100)\rReceiving objects:  78% (78/100)\rReceiving objects:  79% (79/100)\rReceiving objects:  80% (80/100)\rReceiving objects:  81% (81/100)\rReceiving objects:  82% (82/100)\rReceiving objects:  83% (83/100)\rReceiving objects:  84% (84/100)\rReceiving objects:  85% (85/100)\rReceiving objects:  86% (86/100)\rReceiving objects:  87% (87/100)\rReceiving objects:  88% (88/100)\rReceiving objects:  89% (89/100)\rReceiving objects:  90% (90/100)\rReceiving objects:  91% (91/100)\rReceiving objects:  92% (92/100)\rReceiving objects:  93% (93/100)\rReceiving objects:  94% (94/100)\rReceiving objects:  95% (95/100)\rReceiving objects:  96% (96/100)\rReceiving objects:  97% (97/100)\rReceiving objects:  98% (98/100)\rReceiving objects:  99% (99/100)\rReceiving objects: 100% (100/100)\rReceiving objects: 100% (100/100), 20.53 KiB | 4.11 MiB/s, done.\r\nResolving deltas:   0% (0/32)\rResolving deltas:   3% (1/32)\rResolving deltas:   6% (2/32)\rResolving deltas:   9% (3/32)\rResolving deltas:  12% (4/32)\rResolving deltas:  15% (5/32)\rResolving deltas:  18% (6/32)\rResolving deltas:  21% (7/32)\rResolving deltas:  25% (8/32)\rResolving deltas:  28% (9/32)\rResolving deltas:  31% (10/32)\rResolving deltas:  37% (12/32)\rResolving deltas:  40% (13/32)\rResolving deltas:  43% (14/32)\rResolving deltas:  50% (16/32)\rResolving deltas:  53% (17/32)\rResolving deltas:  56% (18/32)\rResolving deltas:  59% (19/32)\rResolving deltas:  62% (20/32)\rResolving deltas:  65% (21/32)\rResolving deltas:  68% (22/32)\rResolving deltas:  71% (23/32)\rResolving deltas:  75% (24/32)\rResolving deltas:  78% (25/32)\rResolving deltas:  81% (26/32)\rResolving deltas:  84% (27/32)\rResolving deltas:  87% (28/32)\rResolving deltas:  90% (29/32)\rResolving deltas:  93% (30/32)\rResolving deltas:  96% (31/32)\rResolving deltas: 100% (32/32)\rResolving deltas: 100% (32/32), done.\r\n"
+  - delay: 24
+    content: '$ '
+  - delay: 1300
+    content: c
+  - delay: 50
+    content: d
+  - delay: 50
+    content: ' '
+  - delay: 50
+    content: I
+  - delay: 50
+    content: O
+  - delay: 50
+    content: "\r\n$ "
+  - delay: 1300
+    content: m
+  - delay: 50
+    content: v
+  - delay: 50
+    content: 'n'
+  - delay: 50
+    content: "\r\n"
+  - delay: 974
+    content: "[\e[1;34mINFO\e[m] Scanning for projects...\r\n"
+  - delay: 51
+    content: "[\e[1;34mINFO\e[m] \r\n[\e[1;34mINFO\e[m] \e[1m--------------------< \e[0;36mcom.github.severinnitsche:IO\e[0;1m >--------------------\e[m\r\n[\e[1;34mINFO\e[m] \e[1mBuilding IO 0.0.0-dev\e[m\r\n[\e[1;34mINFO\e[m] \e[1m--------------------------------[ jar ]---------------------------------\e[m\r\n"
+  - delay: 113
+    content: "[\e[1;34mINFO\e[m] \r\n[\e[1;34mINFO\e[m] \e[1m--- \e[0;32mmaven-resources-plugin:2.6:resources\e[m \e[1m(default-resources)\e[m @ \e[36mIO\e[0;1m ---\e[m\r\n"
+  - delay: 140
+    content: "[\e[1;34mINFO\e[m] Using 'UTF-8' encoding to copy filtered resources.\r\n[\e[1;34mINFO\e[m] skip non existing resourceDirectory /Users/io/Documents/Workspaces/IO/src/main/resources\r\n[\e[1;34mINFO\e[m] \r\n[\e[1;34mINFO\e[m] \e[1m--- \e[0;32mmaven-compiler-plugin:3.1:compile\e[m \e[1m(default-compile)\e[m @ \e[36mIO\e[0;1m ---\e[m\r\n"
+  - delay: 170
+    content: "[\e[1;34mINFO\e[m] Changes detected - recompiling the module!\r\n"
+  - delay: 5
+    content: "[\e[1;34mINFO\e[m] Compiling 6 source files to /Users/io/Documents/Workspaces/IO/out/artifacts/classes\r\n"
+  - delay: 658
+    content: "[\e[1;34mINFO\e[m] \r\n[\e[1;34mINFO\e[m] \e[1m--- \e[0;32mmaven-resources-plugin:2.6:testResources\e[m \e[1m(default-testResources)\e[m @ \e[36mIO\e[0;1m ---\e[m\r\n[\e[1;34mINFO\e[m] Using 'UTF-8' encoding to copy filtered resources.\r\n[\e[1;34mINFO\e[m] skip non existing resourceDirectory /Users/io/Documents/Workspaces/IO/src/test/resources\r\n[\e[1;34mINFO\e[m] \r\n[\e[1;34mINFO\e[m] \e[1m--- \e[0;32mmaven-compiler-plugin:3.1:testCompile\e[m \e[1m(default-testCompile)\e[m @ \e[36mIO\e[0;1m ---\e[m\r\n[\e[1;34mINFO\e[m] Changes detected - recompiling the module!\r\n[\e[1;34mINFO\e[m] Compiling 1 source file to /Users/io/Documents/Workspaces/IO/out/artifacts/test-classes\r\n"
+  - delay: 125
+    content: "[\e[1;34mINFO\e[m] \r\n[\e[1;34mINFO\e[m] \e[1m--- \e[0;32mmaven-surefire-plugin:3.0.0-M5:test\e[m \e[1m(default-test)\e[m @ \e[36mIO\e[0;1m ---\e[m\r\n"
+  - delay: 434
+    content: "[\e[1;34mINFO\e[m] \r\n[\e[1;34mINFO\e[m] -------------------------------------------------------\r\n[\e[1;34mINFO\e[m]  T E S T S\r\n[\e[1;34mINFO\e[m] -------------------------------------------------------\r\n"
+  - delay: 558
+    content: "[\e[1;34mINFO\e[m] Running com.github.severinnitsche.io.\e[1mIOTest\e[m\r\n"
+  - delay: 54
+    content: "[\e[1;34mINFO\e[m] \e[1;32mTests run: \e[0;1;32m4\e[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.049 s - in com.github.severinnitsche.io.\e[1mIOTest\e[m\r\n"
+  - delay: 15
+    content: "[\e[1;34mINFO\e[m] \r\n[\e[1;34mINFO\e[m] Results:\r\n[\e[1;34mINFO\e[m] \r\n[\e[1;34mINFO\e[m] \e[1;32mTests run: 4, Failures: 0, Errors: 0, Skipped: 0\e[m\r\n[\e[1;34mINFO\e[m] \r\n"
+  - delay: 10
+    content: "[\e[1;34mINFO\e[m] \r\n[\e[1;34mINFO\e[m] \e[1m--- \e[0;32mmaven-jar-plugin:2.4:jar\e[m \e[1m(default-jar)\e[m @ \e[36mIO\e[0;1m ---\e[m\r\n"
+  - delay: 145
+    content: "[\e[1;34mINFO\e[m] Building jar: /Users/io/Documents/Workspaces/IO/out/artifacts/IO-0.0.0-dev.jar\r\n"
+  - delay: 18
+    content: "[\e[1;34mINFO\e[m] \r\n[\e[1;34mINFO\e[m] \e[1m--- \e[0;32mmaven-install-plugin:2.4:install\e[m \e[1m(default-install)\e[m @ \e[36mIO\e[0;1m ---\e[m\r\n"
+  - delay: 42
+    content: "[\e[1;34mINFO\e[m] Installing /Users/io/Documents/Workspaces/IO/out/artifacts/IO-0.0.0-dev.jar to /Users/io/.m2/repository/com/github/severinnitsche/IO/0.0.0-dev/IO-0.0.0-dev.jar\r\n[\e[1;34mINFO\e[m] Installing /Users/io/Documents/Workspaces/IO/pom.xml to /Users/io/.m2/repository/com/github/severinnitsche/IO/0.0.0-dev/IO-0.0.0-dev.pom\r\n"
+  - delay: 8
+    content: "[\e[1;34mINFO\e[m] \e[1m------------------------------------------------------------------------\e[m\r\n[\e[1;34mINFO\e[m] \e[1;32mBUILD SUCCESS\e[m\r\n[\e[1;34mINFO\e[m] \e[1m------------------------------------------------------------------------\e[m\r\n[\e[1;34mINFO\e[m] Total time:  2.584 s\r\n[\e[1;34mINFO\e[m] Finished at: 2021-06-06T20:44:17+02:00\r\n[\e[1;34mINFO\e[m] \e[1m------------------------------------------------------------------------\e[m\r\n"
+  - delay: 36
+    content: '$ '
+  - delay: 3500
+    content: "logout\r\n"
