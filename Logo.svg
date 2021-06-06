@@ -1,20 +1,19 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 2000 2000">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" width="75" height="75" viewBox="0 0 2000 2000">
   <defs>
-    <lineargradient id="flame" x1="0" y1="0.5" x2="0" y2="1">
+    <linearGradient id="flame" x1="0" y1="0.5" x2="0" y2="1">
       <stop offset="0%" stop-color="#fe488e"></stop>
       <stop offset="100%" stop-color="#ff8170"></stop>
-    </lineargradient>
-    <lineargradient id="frame">
+    </linearGradient>
+    <linearGradient id="frame">
       <stop offset="0%" stop-color="#fe488e"></stop>
       <stop offset="100%" stop-color="#ff8170"></stop>
-    </lineargradient>
-    <lineargradient id="_frame">
+    </linearGradient>
+    <linearGradient id="_frame">
       <stop offset="0%" stop-color="#abe188"></stop>
       <stop offset="100%" stop-color="#66a3e1"></stop>
-    </lineargradient>
+    </linearGradient>
   </defs>
-  <g fill="#fe488e">
+  <g fill="#FE488E">
     <path id="fire" d="M1847 3669 c-527 -43 -946 -313 -1156 -744 -103 -211 -139 -357 -148 -600 -8 -241 24 -383 138 -605 113 -220 296 -424 487 -544 69 -43 73 -38 93 100 20 137 66 286 110 357 36 58 38 58 176 -8 121 -58 203 -114 284 -194 145 -146 235 -326 273 -553 19 -111 22 -354 6 -468 -8 -57 -8 -75 2 -81 18 -11 195 84 348 186 161 107 271 197 390 315 337 338 533 721 596 1166 22 158 15 439 -15 564 -65 278 -186 497 -385 695 -249 247 -547 382 -917 415 -126 11 -140 11 -282 -1z" style="transform: scale(0.2) translate(215%,195%)" fill="url(#flame)"></path>
     <path id="outside" d="M0 1000 c0 -1000 0 -1000 1000 -1000 1000 0 1000 0 1000 1000 0 1000 0 1000 -1000 1000 -1000 0 -1000 0 -1000 -1000z m1384 690 c181 -46 312 -167 373 -342 28 -79 33 -209 13 -293 -34 -138 -148 -283 -271 -342 -115 -55 -137 -58 -464 -58 -300 0 -300 0 -303 288 -3 315 3 364 55 473 39 83 137 183 223 228 124 65 243 80 374 46z m-826 -448 c-3 -458 -3 -458 -31 -500 -36 -56 -95 -85 -172 -86 -60 -1 -60 -1 -63 413 -1 262 2 427 8 452 24 89 135 179 221 179 40 0 40 0 37 -458z m-60 -719 c49 -37 67 -71 67 -128 0 -60 -20 -95 -75 -132 -29 -20 -46 -23 -131 -23 -99 0 -99 0 -99 96 0 116 15 153 74 190 33 20 51 24 89 21 27 -2 60 -13 75 -24z" fill="url(#frame)"></path>
   </g>
