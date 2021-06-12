@@ -63,7 +63,7 @@ var info = ghost.ghostLine(); // Works even though io is released
 ```
 
 ## Notice
-While all entry methods are 🚫 ✋ non-blocking read and write methods are. Consider this when using IO, because you are 😞 not save from creating 🔥 dead-locks.
+While all entry methods are 🚫 ✋ non-blocking, read and write methods are. Consider this when using IO, because you are 😞 not save from creating 🔥 dead-locks.
 
 ## Social
 Consider ✨ starring this repository if you enjoy it.
