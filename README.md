@@ -74,7 +74,6 @@ While all entry methods are 🚫 ✋ non-blocking, read and write methods are. C
 
 ## Social
 Consider ✨ starring this repository if you enjoy it.
-![Sparkline](https://stars.medv.io/Severin-Nitsche/IO.svg)](https://stars.medv.io/Severin-Nitsche/IO)
 
 [![Anurag's github stats](https://github-readme-stats.vercel.app/api?username=Severin-Nitsche&show_icons=true)](https://github.com/Severin-Nitsche/)
 
