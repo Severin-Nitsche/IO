@@ -5,21 +5,21 @@
 [![Build Status](https://img.shields.io/github/workflow/status/Severin-Nitsche/IO/Build?logo=github)](https://github.com/Severin-Nitsche/IO/actions)
 [![Test Status](https://img.shields.io/github/workflow/status/Severin-Nitsche/IO/Test?label=Tests)](https://github.com/Severin-Nitsche/IO/actions)
 # IO
-IO is a java library that enables secure multi-thread access to an I/O-source useful in the development of web, native and parallel computing communicating applications. This access is strongly cached and high-performance, yet also wrapped in a thread-save and user-friendly layer, appropriate for the java ecosystem.
+IO is a ♨️ java library that enables secure multi-thread access to an I/O-source useful in the development of web, native and parallel computing communicating applications. This access is strongly cached and high-performance, yet also wrapped in a thread-save and user-friendly layer, appropriate for the java ecosystem.
 
 IO is an enabling technology and provides high-level abstraction for handling thread-save I/O-accesses. It is not a framework and remains minimal in functionality so there is little overhead to consider.
 
 IO is open source software and freely available at no charge
 
-## Motivation
+## ❤️‍🔥 Motivation
 
 When wrapping I/O-sources in application layers one often finds it hard to do so in a thread-save manner ie. reading or writing from multiple Threads leads to a jumbled up mess. So one has to resort to other means or bother with java's thread monitoring system which for most casual developers is vastly out of scope in simple projects.
 
-This project aims to lift the latter responsibility out of your 🤝 hands by providing a queue-based wrapper for I/O-sources while 🤞 hopefully also remaining at a peak performance.
+This project aims to lift the latter responsibility out of your 🤝 hands by providing a queue-based wrapper for I/O-sources while 🤞 hopefully also remaining at a 〽️ peak performance.
 
 ![Terminal Example](demo.gif)
 
-## Installation
+## ⚡️ Installation
 
 You can either download the latest release. Or build from 😎 source.
 ```
@@ -31,6 +31,7 @@ Alternatively you may use `make build` if you don't fancy using [Maven](https://
 
 ## Quick Start
 Let's 🧐 see how you may use IO to wrap simple I/O-operations.
+### 🔓 Locking Mechanism
 ```java
 public class Service {
   private SyncedIOStream sio;
@@ -52,6 +53,7 @@ public class Service {
 }
 ```
 Of course one could achieve such simple example easily with the use of a `synchronized` block. However, regardless of code-style preference IO allows for more Operations such as parallel reading. So whenever you create a locally exclusive IO element you are able to fork a 😱 Ghost that outlives it's parents release and picks up reading at their entry-point.
+### 🔥 Parallel Reading
 ```java
 var io = sio.entry();
 ...
@@ -61,9 +63,19 @@ io.release();
 ...
 var info = ghost.ghostLine(); // Works even though io is released
 ```
-
+### ⚠️ Dangerous Capabilities
+There are times, when though generally in need for queued parallelization, one finds themselves in the need for dropping all cares and access the stream directly. Especially when a reading operation is blocking other threads from writing (and a 😱  ghost is unreasonable because the characters need to be consumed in order for other queued Operations to work properly).
+```java
+sio.interrupt("Some Token");
+```
+❗️ Note that this feature is ought to be ❌ removed, when separate queueing for I & O will be ➕ added.
 ## Notice
 While all entry methods are 🚫 ✋ non-blocking, read and write methods are. Consider this when using IO, because you are 😞 not save from creating 🔥 dead-locks.
 
 ## Social
 Consider ✨ starring this repository if you enjoy it.
+![Sparkline](https://stars.medv.io/Severin-Nitsche/IO.svg)](https://stars.medv.io/Severin-Nitsche/IO)
+
+[![Anurag's github stats](https://github-readme-stats.vercel.app/api?username=Severin-Nitsche&show_icons=true)](https://github.com/Severin-Nitsche/)
+
+[![built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://GitHub.com/Severin-Nitsche/)

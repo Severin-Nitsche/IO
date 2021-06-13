@@ -1,5 +1,20 @@
 <svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" width="75" height="75" viewBox="0 0 2000 2000">
   <defs>
+    <style>
+      @media (prefers-color-scheme: light) {
+        #fire {
+          fill: url(#flame);
+        }
+        #outside {
+          fill: url(#frame);
+        }
+      }
+      @media (prefers-color-scheme: dark) {
+        #fire, #outside {
+          fill: url(#_frame);
+        }
+      }
+    </style>
     <linearGradient id="flame" x1="0" y1="0.5" x2="0" y2="1">
       <stop offset="0%" stop-color="#fe488e"></stop>
       <stop offset="100%" stop-color="#ff8170"></stop>
@@ -9,8 +24,8 @@
       <stop offset="100%" stop-color="#ff8170"></stop>
     </linearGradient>
     <linearGradient id="_frame">
-      <stop offset="0%" stop-color="#abe188"></stop>
-      <stop offset="100%" stop-color="#66a3e1"></stop>
+      <stop offset="0%" stop-color="#66a3e1"></stop>
+      <stop offset="100%" stop-color="#8EF9F3"></stop>
     </linearGradient>
   </defs>
   <g fill="#FE488E">
