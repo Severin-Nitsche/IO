@@ -75,6 +75,4 @@ While all entry methods are 🚫 ✋ non-blocking, read and write methods are. C
 ## Social
 Consider ✨ starring this repository if you enjoy it.
 
-[![Anurag's github stats](https://github-readme-stats.vercel.app/api?username=Severin-Nitsche&show_icons=true)](https://github.com/Severin-Nitsche/)
-
 [![built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://GitHub.com/Severin-Nitsche/)
