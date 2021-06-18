@@ -15,6 +15,7 @@ import java.nio.ByteBuffer;
 * <h2>Memory Layout</h2>
 * <p>The buffer is layed out in groups of 9 Bytes each, whereas the first byte of each group contains flags, on whether the following 8 Bytes are readable / written.</p>
 * <table>
+* <caption>Memory Layout</caption>
 *	<thead>
 *    <tr><th>MemoryAddress</th><th>Flags</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th>Text</th></tr>
 *	</thead>
@@ -60,22 +61,48 @@ public class AtomicBuffer {
     this.cleaner = cleaner;
   }
 
+  /**
+  * Static allocation method
+  * @param capacity The initial capacity in 8-Byte words
+  * @return This method creates a dynamically sized buffer with an initial capacity, that also defines the scaling when resizing.
+  */
   public static AtomicBuffer allocate(final int capacity) {
     return new AtomicBuffer(capacity,false,() -> 0);
   }
 
+  /**
+  * Static allocation method
+  * @param capacity The initial capacity in 8-Byte words
+  * @return Same as {@link allocate(int)} but with a direct buffer as underlying storage.
+  */
   public static AtomicBuffer allocateDirect(final int capacity) {
     return new AtomicBuffer(capacity,true,() -> 0);
   }
 
+  /**
+  * Static allocation method
+  * @param capacity The initial capacity in 8-Byte words
+  * @param cleaner A LongSupplier that is queried every time there is a potential reallocation of memory to determine which bytes to discard from the beginning of the Buffer to keep the memory footprint minimal.
+  * @return Same as {@link allocate(int)}
+  */
   public static AtomicBuffer allocate(final int capacity, final LongSupplier cleaner) {
     return new AtomicBuffer(capacity,false,cleaner);
   }
 
+  /**
+  * Static allocation method
+  * @param capacity The initial capacity in 8-Byte words
+  * @param cleaner A LongSupplier that is queried every time there is a potential reallocation of memory to determine which bytes to discard from the beginning of the Buffer to keep the memory footprint minimal.
+  * @return Same as {@link allocate(int,java.util.function.LongSupplier)}
+  */
   public static AtomicBuffer allocateDirect(final int capacity, final LongSupplier cleaner) {
     return new AtomicBuffer(capacity,true,cleaner);
   }
 
+  /**
+  * The current (written) size
+  * @return The size
+  */
   public long size() {
     return position.get();
   }
@@ -103,6 +130,10 @@ public class AtomicBuffer {
     }
   }
 
+  /**
+  * Appends a single byte of data
+  * @param data The data
+  */
   public void write(final byte data) {
     //Lock
     lock.readLock().lock();
@@ -143,6 +174,11 @@ public class AtomicBuffer {
     }
   }
 
+  /**
+  * Non-blocking method returns the information (when marked as written) or -1 (when not written)
+  * @param pos The buffer position to be read from
+  * @return The information
+  */
   public int read(long pos) {
     final long flags = pos / 8 * 9 - offset.get();
     final long real = pos + pos/8 + 1 - offset.get();
@@ -153,6 +189,11 @@ public class AtomicBuffer {
     return -1;
   }
 
+  /**
+  * Blocking read method
+  * @param pos The buffer position to read from
+  * @return The information at pos
+  */
   public byte readByte(long pos) {
     final long flags = pos / 8 * 9 - offset.get();
     final long real = pos + pos/8 + 1 - offset.get();
@@ -161,6 +202,11 @@ public class AtomicBuffer {
     return buffer.get().get((int)real);
   }
 
+  /**
+  * Non-blocking read method that returns the information regardless of the w-status or -1 if the underlying buffer isn't large enough
+  * @param pos The buffer position to be read
+  * @return The information
+  */
   public int get(long pos) {
     final long real = pos + pos/8 + 1 - offset.get();
     if(buffer.get().capacity() <= real)
@@ -168,12 +214,21 @@ public class AtomicBuffer {
     return buffer.get().get((int)real);
   }
 
+  /**
+  * Blocking read method that returns the information regardless of the w-status
+  * @param pos The logical position in the buffer
+  * @return The information
+  */
   public byte getByte(long pos) {
     final long real = pos + pos/8 + 1 - offset.get();
     while(buffer.get().capacity() <= real);
     return buffer.get().get((int)real);
   }
 
+  /**
+  * Removes all information before pos
+  * @param pos The position
+  */
   public void discardBefore(long pos) {
     //lock
     lock.writeLock().lock();

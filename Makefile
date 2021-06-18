@@ -6,3 +6,6 @@ rebuild:
 	jar -cf out/artifacts/IO.jar -C out/production/com.github.severinnitsche.io .
 
 build: project rebuild
+
+doc:
+	find src -name "*.java" | xargs javadoc -d out/doc

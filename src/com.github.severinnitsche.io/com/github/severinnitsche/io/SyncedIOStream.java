@@ -8,6 +8,9 @@ import java.util.ArrayList;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.locks.ReentrantLock;
 
+/**
+* Threadsave manager for I/O operations
+*/
 public class SyncedIOStream {
   private volatile AtomicBuffer buffer;
   private volatile InputStream input;
@@ -17,6 +20,11 @@ public class SyncedIOStream {
   private volatile long offset;
   private final ReentrantLock read;
 
+  /**
+  * Creates a new SyncedIOStream on the basis of existing sources
+  * @param input The input source
+  * @param output The output source
+  */
   public SyncedIOStream(InputStream input, OutputStream output) {
     this.buffer = AtomicBuffer.allocateDirect(131072,() -> ghosts.stream().mapToLong(g -> g.offset).min().orElse(offset)); //1-Mebibyte
     this.queue = new ConcurrentLinkedQueue<>();
@@ -27,12 +35,20 @@ public class SyncedIOStream {
     this.read = new ReentrantLock();
   }
 
+  /**
+  * Non blocking method to queue a new {@link com.github.severinnitsche.io.IOStream}
+  * @return a new IOStream
+  */
   public IOStream entry() {
     var io = new IOStream(this);
     queue.offer(io);
     return io;
   }
 
+  /**
+  * Flush the underlying stream
+  * @throws IOException when the underlying stream throws an exception
+  */
   public void flush() throws IOException {
     output.flush();
   }
@@ -83,6 +99,11 @@ public class SyncedIOStream {
     return ghost;
   }
 
+  /**
+  * Writes a String regardless of other activities
+  * @param s The string
+  * @throws IOException when the underlying stream throws an exception
+  */
   public void interrupt(String s) throws IOException {
     synchronized(output) {
       for(byte b : s.getBytes())
