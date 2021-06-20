@@ -49,6 +49,26 @@ public class SyncedIOStream {
   }
 
   /**
+  * 🚫 Non ✋ blocking method to queue a ✨ new ⛲️ {@link com.github.severinnitsche.io.OSpring}
+  * @return 👉 a ✨ new ⛲️ OSpring
+  */
+  public OSpring oentry() {
+    var o = new OSpring(this);
+    oqueue.offer(o);
+    return o;
+  }
+
+  /**
+  * 🚫 Non ✋ blocking method to queue a ✨ new 🌊 {@link com.github.severinnitsche.io.IFlow}
+  * @return 👉 a ✨ new 🌊 IFlow
+  */
+  public IFlow ientry() {
+    var i = new IFlow(this);
+    iqueue.offer(i);
+    return i;
+  }
+
+  /**
   * Flush the underlying stream
   * @throws IOException when the underlying stream throws an exception
   */
@@ -72,33 +92,47 @@ public class SyncedIOStream {
     //return -1; //Fallback
   }
 
-  int read(IOStream stream, long position) throws IOException {
-    while(iqueue.peek() != stream || oqueue.peek() != stream); //Block
+  private boolean turn(java.io.Closeable entity) {
+    if(entity instanceof IOStream)
+      return iqueue.peek() == entity && oqueue.peek() == entity;
+    else if(entity instanceof IFlow)
+      return iqueue.peek() == entity;
+    else if(entity instanceof OSpring)
+      return oqueue.peek() == entity;
+    return false;
+  }
+
+  int read(IStream stream, long position) throws IOException {
+    while(!turn(stream)); //Block
     long real = position + offset; //The address in the buffer
     return ghost(real);
   }
 
-  void write(IOStream stream, byte b) throws IOException {
-    while(iqueue.peek() != stream || oqueue.peek() != stream); // Block
+  void write(OStream stream, byte b) throws IOException {
+    while(!turn(stream)); // Block
     output.write(b);
   }
 
-  synchronized void release(IOStream stream, long position) {
-    while(iqueue.peek() != stream || oqueue.peek() != stream); // Block
-    offset = position; //Update bounds
+  synchronized void release(IStream stream, long position) {
+    while(iqueue.peek() != stream); // Block
+    offset += position; //Update bounds
     //queue.poll(); //Remove stream
     iqueue.poll();
-    oqueue.poll();
     ghosts.stream().forEach(g -> {
-      if(g.stream == iqueue.peek() && g.stream == oqueue.peek()) {
+      if(g.stream == iqueue.peek()) {
         g.offset = offset;
         g.active.set(true);
       }
     });
   }
 
-  Ghost ghost(IOStream stream) {
-    var ghost = new Ghost(stream,iqueue.peek() == stream && oqueue.peek() == stream,offset,this);
+  synchronized void release(OStream stream) {
+    while(oqueue.peek() != stream); //Block
+    oqueue.poll();
+  }
+
+  Ghost ghost(IStream stream) {
+    var ghost = new Ghost(stream,turn(stream),offset,this);
     ghosts.add(ghost);
     return ghost;
   }

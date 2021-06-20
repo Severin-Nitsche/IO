@@ -9,14 +9,14 @@ import java.util.concurrent.atomic.AtomicBoolean;
 */
 public class Ghost {
 
-  IOStream stream;
+  IStream stream;
   long offset;
   SyncedIOStream sync;
   long position;
 
   AtomicBoolean active;
 
-  Ghost(IOStream stream, boolean active, long offset, SyncedIOStream sync) {
+  Ghost(IStream stream, boolean active, long offset, SyncedIOStream sync) {
     this.stream = stream;
     this.sync = sync;
     this.position = 0;

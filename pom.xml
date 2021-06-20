@@ -4,7 +4,7 @@
 
   <groupId>com.github.severinnitsche</groupId>
   <artifactId>IO</artifactId>
-  <version>1.0.1</version>
+  <version>1.1.0</version>
 
   <developers>
     <developer>
@@ -33,13 +33,14 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
         <version>3.0.0-M5</version>
-        <configuration>
-          <configurationParameters>
-            junit.jupiter.execution.parallel.enabled = true
-          </configurationParameters>
-        </configuration>
       </plugin>
     </plugins>
+    <testResources>
+      <testResource>
+        <!--Run in parallel but cuases some weird [ERROR] INFO message-->
+        <directory>${project.basedir}/test/resources</directory>
+      </testResource>
+    </testResources>
   </build>
 
   <properties>

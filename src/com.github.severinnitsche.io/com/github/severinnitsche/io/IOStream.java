@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.ByteArrayOutputStream;
 
 /**
-* Sequential I/O entity to use with a SyncedIOStream
+* Sequential I/O entity to 🪢 use with a SyncedIOStream
 */
 public class IOStream implements IStream, OStream {
 
@@ -92,10 +92,11 @@ public class IOStream implements IStream, OStream {
   public void close() throws IOException {
     flush();
     stream.release(this,position);
+    stream.release(this);
   }
 
   /**
-  * 🎭 Alias for close
+  * 🎭 Alias for {@link close()}
   * @throws IOException as specified for {@link close()}
   */
   public void release() throws IOException {
