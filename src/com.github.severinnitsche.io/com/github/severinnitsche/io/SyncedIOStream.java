@@ -15,7 +15,8 @@ public class SyncedIOStream {
   private volatile AtomicBuffer buffer;
   private volatile InputStream input;
   private volatile OutputStream output;
-  private volatile ConcurrentLinkedQueue<IOStream> queue;
+  private volatile ConcurrentLinkedQueue<IStream> iqueue;
+  private volatile ConcurrentLinkedQueue<OStream> oqueue;
   private volatile ArrayList<Ghost> ghosts;
   private volatile long offset;
   private final ReentrantLock read;
@@ -27,7 +28,8 @@ public class SyncedIOStream {
   */
   public SyncedIOStream(InputStream input, OutputStream output) {
     this.buffer = AtomicBuffer.allocateDirect(131072,() -> ghosts.stream().mapToLong(g -> g.offset).min().orElse(offset)); //1-Mebibyte
-    this.queue = new ConcurrentLinkedQueue<>();
+    this.iqueue = new ConcurrentLinkedQueue<>();
+    this.oqueue = new ConcurrentLinkedQueue<>();
     this.ghosts = new ArrayList<>();
     this.output = output;
     this.input = input;
@@ -41,7 +43,8 @@ public class SyncedIOStream {
   */
   public IOStream entry() {
     var io = new IOStream(this);
-    queue.offer(io);
+    iqueue.offer(io);
+    oqueue.offer(io);
     return io;
   }
 
@@ -70,23 +73,24 @@ public class SyncedIOStream {
   }
 
   int read(IOStream stream, long position) throws IOException {
-    while(queue.peek() != stream); //Block
+    while(iqueue.peek() != stream || oqueue.peek() != stream); //Block
     long real = position + offset; //The address in the buffer
     return ghost(real);
   }
 
   void write(IOStream stream, byte b) throws IOException {
-    while(queue.peek() != stream); //block until stream is at front of the queue
+    while(iqueue.peek() != stream || oqueue.peek() != stream); // Block
     output.write(b);
   }
 
   synchronized void release(IOStream stream, long position) {
-    while(queue.peek() != stream); //Block
+    while(iqueue.peek() != stream || oqueue.peek() != stream); // Block
     offset = position; //Update bounds
-    queue.poll(); //Remove stream
-    //TODO: Add ghost Activation
+    //queue.poll(); //Remove stream
+    iqueue.poll();
+    oqueue.poll();
     ghosts.stream().forEach(g -> {
-      if(g.stream == queue.peek()) {
+      if(g.stream == iqueue.peek() && g.stream == oqueue.peek()) {
         g.offset = offset;
         g.active.set(true);
       }
@@ -94,7 +98,7 @@ public class SyncedIOStream {
   }
 
   Ghost ghost(IOStream stream) {
-    var ghost = new Ghost(stream,queue.peek() == stream,offset,this);
+    var ghost = new Ghost(stream,iqueue.peek() == stream && oqueue.peek() == stream,offset,this);
     ghosts.add(ghost);
     return ghost;
   }

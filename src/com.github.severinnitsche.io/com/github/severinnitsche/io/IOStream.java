@@ -6,7 +6,7 @@ import java.io.ByteArrayOutputStream;
 /**
 * Sequential I/O entity to use with a SyncedIOStream
 */
-public class IOStream {
+public class IOStream implements IStream, OStream {
 
   private SyncedIOStream stream;
   long position;
@@ -16,11 +16,7 @@ public class IOStream {
     this.position = 0;
   }
 
-  /**
-  * read the next byte of data
-  * @return The information
-  * @throws IOException when the underlying stream throws an exception
-  */
+  @Override
   public int read() throws IOException {
     return stream.read(this,position++);
   }
@@ -38,11 +34,7 @@ public class IOStream {
     return out.toString();
   }
 
-  /**
-  * Write a singular byte of data
-  * @param b The byte to be written
-  * @throws IOException when the underlying stream throws an exception
-  */
+  @Override
   public void write(byte b) throws IOException {
     stream.write(this,b);
   }
@@ -86,28 +78,27 @@ public class IOStream {
     write(String.format(f,args));
   }
 
-  /**
-  * Fork a ghost from this Streams root
-  * @return A ghost
-  */
+  @Override
   public Ghost ghost() {
     return stream.ghost(this);
   }
 
-  /**
-  * Call for the underlying I/O Stream to be flushed
-  * @throws IOException when the underlying stream throws an exception
-  */
+  @Override
   public void flush() throws IOException {
     stream.flush();
   }
 
-  /**
-  * Flushes the stream and marks its memory consumption as to be freed
-  * @throws IOException when the underlying stream throws an exception
-  */
-  public void release() throws IOException {
+  @Override
+  public void close() throws IOException {
     flush();
     stream.release(this,position);
+  }
+
+  /**
+  * 🎭 Alias for close
+  * @throws IOException as specified for {@link close()}
+  */
+  public void release() throws IOException {
+    close();
   }
 }
