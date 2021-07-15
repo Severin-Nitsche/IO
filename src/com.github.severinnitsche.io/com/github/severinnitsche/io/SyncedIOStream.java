@@ -41,7 +41,7 @@ public class SyncedIOStream {
   * Non blocking method to queue a new {@link com.github.severinnitsche.io.IOStream}
   * @return a new IOStream
   */
-  public IOStream entry() {
+  public synchronized IOStream entry() {
     var io = new IOStream(this);
     iqueue.offer(io);
     oqueue.offer(io);
@@ -142,6 +142,7 @@ public class SyncedIOStream {
   * @param s The string
   * @throws IOException when the underlying stream throws an exception
   */
+  @Deprecated
   public void interrupt(String s) throws IOException {
     synchronized(output) {
       for(byte b : s.getBytes())
