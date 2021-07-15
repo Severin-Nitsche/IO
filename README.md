@@ -68,7 +68,26 @@ There are times, when though generally in need for queued parallelization, one f
 ```java
 sio.interrupt("Some Token");
 ```
-❗️ Note that this feature is ought to be ❌ removed, when separate queueing for I & O will be ➕ added.
+❗️ Note that this feature is ought to be ❌ removed, as separate queueing for I & O has been ➕ added.
+
+### Separate Queueing
+To allow for more fine grained control of one's I/O-sources, there has been ➕ added a 🎗 support for separate I/O-queueing.
+```java
+try (var i = sio.ientry()) {
+  ...
+  var info = i.readLine();
+  ...
+}
+```
+```java
+try (var o = sio.oentry()) {
+  ...
+  o.write(SOME_BYTE);
+  ...
+}
+```
+As seen here, there also has been added the implementation of the [`Closeable`](https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/io/Closeable.html) interface, which allows for a 😅 save usage - even with 💩 faulty code - and seeks to be a 👍 preferred alternative to the `release` method. Of course this is also true for combined I/O.
+
 ## Notice
 While all entry methods are 🚫 ✋ non-blocking, read and write methods are. Consider this when using IO, because you are 😞 not save from creating 🔥 dead-locks.
 
